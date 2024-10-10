@@ -1,0 +1,2 @@
+Crie 2 theads para que 1 prinmeira faça a demonstração dos numeros pares
+e outra faça a demosntração dos numeros ímpares
