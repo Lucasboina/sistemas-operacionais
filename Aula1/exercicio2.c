@@ -42,7 +42,7 @@ int main()
     printf("Main: criando a thread %d\n", 2);
     pthread_create(&t2, NULL, countSum, (void *)mat[1]); // criando thread 2
     printf("Main: criando a thread %d\n", 3);
-    pthread_create(&t2, NULL, countSum, (void *)mat[2]); // criando thread 3
+    pthread_create(&t3, NULL, countSum, (void *)mat[2]); // criando thread 3
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
     pthread_join(t3, NULL);
