@@ -4,6 +4,9 @@
 #include <unistd.h>  //acesso ao POSIX do Sistema Operacional
 #include <time.h>
 
+
+pthread_barrier_t barreiraTreads;
+
 void bubbleSort(int vetor[], int n)
 {
     int k, j, aux;
@@ -100,6 +103,7 @@ void controlaBubbleSort(void *tid)
     clock_t t;
     long *vetor;
     vetor = (long *)tid;
+    pthread_barrier_wait(&barreiraTreads);
     t = clock(); // armazena tempo}
     bubbleSort((int *)vetor, 1000);
     t = clock() - t;                                                                        // tempo final - tempo inicial
@@ -110,6 +114,7 @@ void controlaSelectionSort(void *tid)
     clock_t t;
     long *vetor;
     vetor = (long *)tid;
+    pthread_barrier_wait(&barreiraTreads);
     t = clock(); // armazena tempo}
     selectionSort((int *)vetor, 1000);
     t = clock() - t;                                                                           // tempo final - tempo inicial
@@ -120,6 +125,7 @@ void controlaInsertionSort(void *tid)
     clock_t t;
     long *vetor;
     vetor = (long *)tid;
+    pthread_barrier_wait(&barreiraTreads);
     t = clock(); // armazena tempo}
     insertionSort((int *)vetor, 1000);
     t = clock() - t;                                                                           // tempo final - tempo inicial
@@ -130,6 +136,7 @@ void controlaHeapSort(void *tid)
     clock_t t;
     long *vetor;
     vetor = (long *)tid;
+    pthread_barrier_wait(&barreiraTreads);
     t = clock(); // armazena tempo}
     heapSort((int *)vetor, 1000);
     t = clock() - t;                                                                      // tempo final - tempo inicial
@@ -149,12 +156,13 @@ int main()
         a[i] = rand() % 100;
         d[i] = b[i] = c[i] = a[i];
     }
-    pthread_t t1, t2, t3, t4;                                    
+    pthread_t t1, t2, t3, t4;
+    pthread_barrier_init(&barreiraTreads,NULL, 4);
     pthread_create(&t1, NULL, controlaBubbleSort, (void *)a);    // criando thread 1
-    pthread_create(&t2, NULL, controlaSelectionSort, (void *)b); // criando thread 2
+    pthread_create(&t2, NULL, controlaSelectionSort, (void *)b); // scriando thread 2
     pthread_create(&t3, NULL, controlaInsertionSort, (void *)c); // criando thread 3
     pthread_create(&t4, NULL, controlaHeapSort, (void *)d);      // criando thread 4
-
+    
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
     pthread_join(t3, NULL);
