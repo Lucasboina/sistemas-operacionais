@@ -167,8 +167,8 @@ int main()
     pthread_join(t2, NULL);
     pthread_join(t3, NULL);
     pthread_join(t4, NULL);
+    pthread_barrier_destroy(&barreiraTreads);
 
     printf("Main: finalizando\n");
-
     return 0;
 }
