@@ -107,7 +107,7 @@ void controlaBubbleSort(void *tid)
     t = clock(); // armazena tempo}
     bubbleSort((int *)vetor, 1000);
     t = clock() - t;                                                                        // tempo final - tempo inicial
-    printf("Tempo de execucao bubbleSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC / 1000))); // conversão para double
+    printf("Tempo de execucao bubbleSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC))); // conversão para double
 }
 void controlaSelectionSort(void *tid)
 {
@@ -118,7 +118,7 @@ void controlaSelectionSort(void *tid)
     t = clock(); // armazena tempo}
     selectionSort((int *)vetor, 1000);
     t = clock() - t;                                                                           // tempo final - tempo inicial
-    printf("Tempo de execucao SelectionSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC / 1000))); // conversão para double
+    printf("Tempo de execucao SelectionSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC))); // conversão para double
 }
 void controlaInsertionSort(void *tid)
 {
@@ -129,7 +129,7 @@ void controlaInsertionSort(void *tid)
     t = clock(); // armazena tempo}
     insertionSort((int *)vetor, 1000);
     t = clock() - t;                                                                           // tempo final - tempo inicial
-    printf("Tempo de execucao InsertionSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC / 1000))); // conversão para double
+    printf("Tempo de execucao InsertionSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC))); // conversão para double
 }
 void controlaHeapSort(void *tid)
 {
@@ -140,7 +140,7 @@ void controlaHeapSort(void *tid)
     t = clock(); // armazena tempo}
     heapSort((int *)vetor, 1000);
     t = clock() - t;                                                                      // tempo final - tempo inicial
-    printf("Tempo de execucao HeapSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC / 1000))); // conversão para double
+    printf("Tempo de execucao HeapSort: %lf\n", ((double)t) / ((CLOCKS_PER_SEC))); // conversão para double
 }
 
 int main()
